@@ -1,19 +1,19 @@
-<?php namespace Waavi\Translation;
+<?php namespace Vtscarlos\Translation;
 
 use Illuminate\Translation\FileLoader as LaravelFileLoader;
 use Illuminate\Translation\TranslationServiceProvider as LaravelTranslationServiceProvider;
-use Waavi\Translation\Cache\RepositoryFactory as CacheRepositoryFactory;
-use Waavi\Translation\Commands\CacheFlushCommand;
-use Waavi\Translation\Commands\FileLoaderCommand;
-use Waavi\Translation\Loaders\CacheLoader;
-use Waavi\Translation\Loaders\DatabaseLoader;
-use Waavi\Translation\Loaders\FileLoader;
-use Waavi\Translation\Loaders\MixedLoader;
-use Waavi\Translation\Middleware\TranslationMiddleware;
-use Waavi\Translation\Models\Translation;
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\Repositories\TranslationRepository;
-use Waavi\Translation\Routes\ResourceRegistrar;
+use Vtscarlos\Translation\Cache\RepositoryFactory as CacheRepositoryFactory;
+use Vtscarlos\Translation\Commands\CacheFlushCommand;
+use Vtscarlos\Translation\Commands\FileLoaderCommand;
+use Vtscarlos\Translation\Loaders\CacheLoader;
+use Vtscarlos\Translation\Loaders\DatabaseLoader;
+use Vtscarlos\Translation\Loaders\FileLoader;
+use Vtscarlos\Translation\Loaders\MixedLoader;
+use Vtscarlos\Translation\Middleware\TranslationMiddleware;
+use Vtscarlos\Translation\Models\Translation;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Routes\ResourceRegistrar;
 
 class TranslationServiceProvider extends LaravelTranslationServiceProvider
 {

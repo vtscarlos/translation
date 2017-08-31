@@ -1,8 +1,8 @@
-<?php namespace Waavi\Translation\Test\Localizer;
+<?php namespace Vtscarlos\Translation\Test\Localizer;
 
 // PHPUnit wrappers:
 use UriLocalizer;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Test\TestCase;
 
 class LocalizeUriTest extends TestCase
 {

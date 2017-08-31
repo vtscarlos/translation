@@ -1,6 +1,6 @@
-<?php namespace Waavi\Translation\Test\Middleware;
+<?php namespace Vtscarlos\Translation\Test\Middleware;
 
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Test\TestCase;
 
 class TranslationMiddlewareTest extends TestCase
 {

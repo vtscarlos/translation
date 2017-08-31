@@ -1,19 +1,19 @@
-<?php namespace Waavi\Translation\Middleware;
+<?php namespace Vtscarlos\Translation\Middleware;
 
 use Closure;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Foundation\Application;
 use Illuminate\View\Factory as ViewFactory;
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\UriLocalizer;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\UriLocalizer;
 
 class TranslationMiddleware
 {
     /**
      *  Constructor
      *
-     *  @param  Waavi\Translation\UriLocalizer                      $uriLocalizer
-     *  @param  Waavi\Translation\Repositories\LanguageRepository   $languageRepository
+     *  @param  Vtscarlos\Translation\UriLocalizer                      $uriLocalizer
+     *  @param  Vtscarlos\Translation\Repositories\LanguageRepository   $languageRepository
      *  @param  Illuminate\Config\Repository                        $config                 Laravel config
      *  @param  Illuminate\View\Factory                             $viewFactory
      *  @param  Illuminate\Foundation\Application                   $app
@@ -68,14 +68,14 @@ class TranslationMiddleware
             $this->viewFactory->share('altLocalizedUrls', $altLocalizedUrls);
 
             // Set locale in session:
-            if ($request->hasSession() && $request->session()->get('waavi.translation.locale') !== $uriLocale) {
-                $request->session()->put('waavi.translation.locale', $uriLocale);
+            if ($request->hasSession() && $request->session()->get('vtscarlos.translation.locale') !== $uriLocale) {
+                $request->session()->put('vtscarlos.translation.locale', $uriLocale);
             }
             return $next($request);
         }
 
         // If no locale was set in the url, check the session locale
-        if ($request->hasSession() && $sessionLocale = $request->session()->get('waavi.translation.locale')) {
+        if ($request->hasSession() && $sessionLocale = $request->session()->get('vtscarlos.translation.locale')) {
             if ($this->languageRepository->isValidLocale($sessionLocale)) {
                 return redirect()->to($this->uriLocalizer->localize($currentUrl, $sessionLocale, $segment));
             }

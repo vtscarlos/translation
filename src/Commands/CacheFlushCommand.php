@@ -1,7 +1,7 @@
-<?php namespace Waavi\Translation\Commands;
+<?php namespace Vtscarlos\Translation\Commands;
 
 use Illuminate\Console\Command;
-use Waavi\Translation\Cache\CacheRepositoryInterface as CacheRepository;
+use Vtscarlos\Translation\Cache\CacheRepositoryInterface as CacheRepository;
 
 class CacheFlushCommand extends Command
 {
@@ -22,8 +22,8 @@ class CacheFlushCommand extends Command
     /**
      *  Create the cache flushed command
      *
-     *  @param  \Waavi\Lang\Providers\LanguageProvider        $languageRepository
-     *  @param  \Waavi\Lang\Providers\LanguageEntryProvider   $translationRepository
+     *  @param  \Vtscarlos\Lang\Providers\LanguageProvider        $languageRepository
+     *  @param  \Vtscarlos\Lang\Providers\LanguageEntryProvider   $translationRepository
      *  @param  \Illuminate\Foundation\Application            $app
      */
     public function __construct(CacheRepository $cacheRepository, $cacheEnabled)

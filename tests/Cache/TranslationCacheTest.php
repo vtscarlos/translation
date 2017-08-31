@@ -1,6 +1,6 @@
-<?php namespace Waavi\Translation\Test\Cache;
+<?php namespace Vtscarlos\Translation\Test\Cache;
 
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Test\TestCase;
 
 class TranslationCacheTest extends TestCase
 {

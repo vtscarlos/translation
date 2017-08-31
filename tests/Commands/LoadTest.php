@@ -1,9 +1,9 @@
-<?php namespace Waavi\Translation\Test\Commands;
+<?php namespace Vtscarlos\Translation\Test\Commands;
 
-use Waavi\Translation\Commands\FileLoaderCommand;
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\Repositories\TranslationRepository;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Commands\FileLoaderCommand;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Test\TestCase;
 
 class LoadTest extends TestCase
 {

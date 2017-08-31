@@ -1,8 +1,8 @@
-<?php namespace Waavi\Translation\Test\Loaders;
+<?php namespace Vtscarlos\Translation\Test\Loaders;
 
 use Illuminate\Translation\FileLoader as LaravelFileLoader;
-use Waavi\Translation\Loaders\FileLoader;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Loaders\FileLoader;
+use Vtscarlos\Translation\Test\TestCase;
 use \Mockery;
 
 class FileLoaderTest extends TestCase

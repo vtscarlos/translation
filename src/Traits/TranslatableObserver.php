@@ -1,7 +1,7 @@
-<?php namespace Waavi\Translation\Traits;
+<?php namespace Vtscarlos\Translation\Traits;
 
-use Waavi\Translation\Models\Translation;
-use Waavi\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Models\Translation;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
 
 class TranslatableObserver
 {

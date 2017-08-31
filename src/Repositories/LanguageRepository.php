@@ -1,16 +1,16 @@
-<?php namespace Waavi\Translation\Repositories;
+<?php namespace Vtscarlos\Translation\Repositories;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Foundation\Application;
 use Illuminate\Validation\Factory as Validator;
-use Waavi\Translation\Models\Language;
+use Vtscarlos\Translation\Models\Language;
 
 class LanguageRepository extends Repository
 {
     /**
      * The model being queried.
      *
-     * @var \Waavi\Translation\Models\Language
+     * @var \Vtscarlos\Translation\Models\Language
      */
     protected $model;
 
@@ -51,7 +51,7 @@ class LanguageRepository extends Repository
 
     /**
      *  Constructor
-     *  @param  \Waavi\Translation\Models\Language      $model  Bade model for queries.
+     *  @param  \Vtscarlos\Translation\Models\Language      $model  Bade model for queries.
      *  @param  \Illuminate\Validation\Validator        $validator  Validator factory
      *  @return void
      */

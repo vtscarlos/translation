@@ -1,9 +1,9 @@
-<?php namespace Waavi\Translation\Loaders;
+<?php namespace Vtscarlos\Translation\Loaders;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Translation\LoaderInterface;
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
 
 abstract class Loader implements LoaderInterface
 {
@@ -17,8 +17,8 @@ abstract class Loader implements LoaderInterface
     /**
      *  Create a new loader instance.
      *
-     *  @param  \Waavi\Translation\Repositories\LanguageRepository      $languageRepository
-     *  @param  \Waavi\Translation\Repositories\TranslationRepository   $translationRepository
+     *  @param  \Vtscarlos\Translation\Repositories\LanguageRepository      $languageRepository
+     *  @param  \Vtscarlos\Translation\Repositories\TranslationRepository   $translationRepository
      *  @param  \Illuminate\Config\Repository                           $config
      */
     public function __construct($defaultLocale)

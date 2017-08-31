@@ -1,4 +1,4 @@
-<?php namespace Waavi\Translation\Facades;
+<?php namespace Vtscarlos\Translation\Facades;
 
 use \Illuminate\Support\Facades\Facade;
 

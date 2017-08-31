@@ -1,9 +1,9 @@
-<?php namespace Waavi\Translation\Test\Loaders;
+<?php namespace Vtscarlos\Translation\Test\Loaders;
 
-use Waavi\Translation\Loaders\DatabaseLoader;
-use Waavi\Translation\Loaders\FileLoader;
-use Waavi\Translation\Loaders\MixedLoader;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Loaders\DatabaseLoader;
+use Vtscarlos\Translation\Loaders\FileLoader;
+use Vtscarlos\Translation\Loaders\MixedLoader;
+use Vtscarlos\Translation\Test\TestCase;
 use \Mockery;
 
 class MixedLoaderTest extends TestCase

@@ -1,7 +1,7 @@
-<?php namespace Waavi\Translation\Loaders;
+<?php namespace Vtscarlos\Translation\Loaders;
 
 use Illuminate\Translation\LoaderInterface;
-use Waavi\Translation\Cache\CacheRepositoryInterface as Cache;
+use Vtscarlos\Translation\Cache\CacheRepositoryInterface as Cache;
 
 class CacheLoader extends Loader implements LoaderInterface
 {
@@ -37,8 +37,8 @@ class CacheLoader extends Loader implements LoaderInterface
      *  Create a new mixed loader instance.
      *
      *  @param  string                                                      $defaultLocale
-     *  @param  \Waavi\Translation\Contracts\CacheRepositoryInterface       $cache              Cache repository.
-     *  @param  \Waavi\Translation\Loaders\Loader                           $fallback           Translation loader to use on cache miss.
+     *  @param  \Vtscarlos\Translation\Contracts\CacheRepositoryInterface       $cache              Cache repository.
+     *  @param  \Vtscarlos\Translation\Loaders\Loader                           $fallback           Translation loader to use on cache miss.
      *  @param  integer                                                     $cacheTimeout       In minutes.
      */
     public function __construct($defaultLocale, Cache $cache, Loader $fallback, $cacheTimeout)

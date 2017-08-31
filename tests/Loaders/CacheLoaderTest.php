@@ -1,9 +1,9 @@
-<?php namespace Waavi\Translation\Test\Loaders;
+<?php namespace Vtscarlos\Translation\Test\Loaders;
 
-use Waavi\Translation\Cache\SimpleRepository as Cache;
-use Waavi\Translation\Loaders\CacheLoader;
-use Waavi\Translation\Loaders\Loader;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Cache\SimpleRepository as Cache;
+use Vtscarlos\Translation\Loaders\CacheLoader;
+use Vtscarlos\Translation\Loaders\Loader;
+use Vtscarlos\Translation\Test\TestCase;
 use \Mockery;
 
 class CacheLoaderTest extends TestCase

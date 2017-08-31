@@ -1,8 +1,8 @@
 {
-    "name": "waavi/translation",
+    "name": "vtscarlos/translation",
     "description": "A Translation package for Laravel 5 with database and cache support",
     "keywords": [
-        "waavi",
+        "vtscarlos",
         "laravel-translator",
         "laravel",
         "translator",
@@ -12,9 +12,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Waavi",
-            "email": "info@waavi.com",
-            "homepage": "http://waavi.com"
+            "name": "Carlos Ortega",
+            "email": "vtscarlos@gmail.com",
         }
     ],
     "require": {
@@ -28,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Waavi\\Translation\\": "src/"
+            "Vtscarlos\\Translation\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Waavi\\Translation\\Test\\": "tests"
+            "Vtscarlos\\Translation\\Test\\": "tests"
         }
     },
     "minimum-stability": "dev",

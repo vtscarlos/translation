@@ -1,4 +1,4 @@
-<?php namespace Waavi\Translation\Cache;
+<?php namespace Vtscarlos\Translation\Cache;
 
 use Illuminate\Contracts\Cache\Store;
 

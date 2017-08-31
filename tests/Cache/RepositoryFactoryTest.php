@@ -1,11 +1,11 @@
-<?php namespace Waavi\Translation\Test\Cache;
+<?php namespace Vtscarlos\Translation\Test\Cache;
 
 use Illuminate\Cache\ArrayStore;
 use Illuminate\Cache\FileStore;
-use Waavi\Translation\Cache\RepositoryFactory;
-use Waavi\Translation\Cache\SimpleRepository;
-use Waavi\Translation\Cache\TaggedRepository;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Cache\RepositoryFactory;
+use Vtscarlos\Translation\Cache\SimpleRepository;
+use Vtscarlos\Translation\Cache\TaggedRepository;
+use Vtscarlos\Translation\Test\TestCase;
 
 class RepositoryFactoryTest extends TestCase
 {

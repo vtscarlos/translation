@@ -1,9 +1,9 @@
 # Better localization management for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/waavi/translation.svg?style=flat-square)](https://packagist.org/packages/waavi/translation)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/vtscarlos/translation.svg?style=flat-square)](https://packagist.org/packages/vtscarlos/translation)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/Waavi/translation/master.svg?style=flat-square)](https://travis-ci.org/Waavi/translation)
-[![Total Downloads](https://img.shields.io/packagist/dt/waavi/translation.svg?style=flat-square)](https://packagist.org/packages/waavi/translation)
+[![Build Status](https://img.shields.io/travis/Vtscarlos/translation/master.svg?style=flat-square)](https://travis-ci.org/Vtscarlos/translation)
+[![Total Downloads](https://img.shields.io/packagist/dt/vtscarlos/translation.svg?style=flat-square)](https://packagist.org/packages/vtscarlos/translation)
 
 ## Introduction
 
@@ -11,7 +11,7 @@ Keeping a project's translations properly updated is cumbersome. Usually transla
 
 This package allows developers to leverage their database and cache to manage multilanguage sites, while still working on language files during development and benefiting from all the features Laravel's Translation bundle has, like pluralization or replacement.
 
-WAAVI is a web development studio based in Madrid, Spain. You can learn more about us at [waavi.com](http://waavi.com)
+WAAVI is a web development studio based in Madrid, Spain. You can learn more about us at [vtscarlos.com](http://vtscarlos.com)
 
 ## Table of contents
 
@@ -51,12 +51,12 @@ WAAVI is a web development studio based in Madrid, Spain. You can learn more abo
 
 Require through composer
 
-	composer require waavi/translation 2.1.x
+	composer require vtscarlos/translation 2.1.x
 
 Or manually edit your composer.json file:
 
 	"require": {
-		"waavi/translation": "2.1.x"
+		"vtscarlos/translation": "2.1.x"
 	}
 
 Once installed, in your project's config/app.php file replace the following entry from the providers array:
@@ -65,7 +65,7 @@ Once installed, in your project's config/app.php file replace the following entr
 
 with:
 
-	Waavi\Translation\TranslationServiceProvider::class
+	Vtscarlos\Translation\TranslationServiceProvider::class
 
 Remove your config cache:
 
@@ -218,7 +218,7 @@ In order to access the translation cache, add to your config/app.php files, the 
 ```php
     'aliases'         => [
         /* ... */
-        'TranslationCache' => \Waavi\Translation\Facades\TranslationCache::class,
+        'TranslationCache' => \Vtscarlos\Translation\Facades\TranslationCache::class,
     ]
 ```
 Once done, you may clear the whole translation cache by calling:
@@ -235,11 +235,11 @@ You may also choose to invalidate only a given locale, namespace and group combi
 - The namespace is either '*' for your application translation files, or 'package' for vendor translation files.
 - The group variable is the path to the translation file you wish to clear.
 
-For example, say we have the following file in our resources/lang directory: en/auth.php, en/auth/login.php and en/vendor/waavi/login.php. To clear the cache entries for each of them you would call:
+For example, say we have the following file in our resources/lang directory: en/auth.php, en/auth/login.php and en/vendor/vtscarlos/login.php. To clear the cache entries for each of them you would call:
 ```php
     \TranslationCache::flush('en', 'auth', '*');
     \TranslationCache::flush('en', 'auth/login', '*');
-    \TranslationCache::flush('en', 'login', 'waavi');
+    \TranslationCache::flush('en', 'login', 'vtscarlos');
 ```
 
 ## Managing languages and translations in the Database
@@ -262,7 +262,7 @@ validationErrors();							| Get validation errors for create and update methods
 
 ### Managing Languages
 
-Language management should be done through the **\Waavi\Translation\Repositories\LanguageRepository** to ensure proper data validation before inserts and updates. It is recommended that you instantiate this class through Dependency Injection.
+Language management should be done through the **\Vtscarlos\Translation\Repositories\LanguageRepository** to ensure proper data validation before inserts and updates. It is recommended that you instantiate this class through Dependency Injection.
 
 A valid Language record requires both its name and locale to be unique. It is recommended you use the native name for each language (Ex: English, Español, Français)
 
@@ -283,7 +283,7 @@ percentTranslated($locale);				| Returns the percent translated for the given lo
 
 ### Managing Translations
 
-Translation management should be done through the **\Waavi\Translation\Repositories\TranslationRepository** to ensure proper data validation before inserts and updates. It is recommended that you instantiate this class through Dependency Injection.
+Translation management should be done through the **\Vtscarlos\Translation\Repositories\TranslationRepository** to ensure proper data validation before inserts and updates. It is recommended that you instantiate this class through Dependency Injection.
 
 A valid translation entry cannot have the same locale and language code than another.
 
@@ -312,7 +312,7 @@ Things to consider:
 You can also use the translation management system to manage your model attributes translations. To do this, you only need to:
 
  - Make sure either the database or mixed source are set.
- - Make sure your models use the Waavi\Translation\Translatable\Trait
+ - Make sure your models use the Vtscarlos\Translation\Translatable\Trait
  - In your model, add a translatableAttributes array with the names of the attributes you wish to be available for translation.
  - For every field you wish to translate, make sure there is a corresponding attributeName_translation field in your database.
 
@@ -330,14 +330,14 @@ Example:
 
     class Example extends Model
 	{
-	    use \Waavi\Translation\Translatable\Trait;
+	    use \Vtscarlos\Translation\Translatable\Trait;
 	    protected $translatableAttributes = ['title', 'text'];
 	}
 ```
 
 ## Uri localization
 
-You may use Waavi\Translation\Middleware\TranslationMiddleware to make sure all of your urls are properly localized. The TranslationMiddleware will only redirect GET requests that do not have a locale in them.
+You may use Vtscarlos\Translation\Middleware\TranslationMiddleware to make sure all of your urls are properly localized. The TranslationMiddleware will only redirect GET requests that do not have a locale in them.
 
 For example, if a user visits the url /home, the following would happen:
 
@@ -358,7 +358,7 @@ You may choose to activate this Middleware globally by adding the middleware to 
 ```php
 	protected $middleware = [
 		/* ... */
-        \Waavi\Translation\Middleware\TranslationMiddleware::class,
+        \Vtscarlos\Translation\Middleware\TranslationMiddleware::class,
     ]
 ```
 Or to apply it selectively through the **'localize'** route middleware, which is already registered when installing the package through the ServiceProvider.
@@ -368,7 +368,7 @@ It is recommended you add the following alias to your config/app.php aliases:
 ```php
 	'aliases'         => [
 		/* ... */
-		'UriLocalizer'	=> Waavi\Translation\Facades\UriLocalizer::class,
+		'UriLocalizer'	=> Vtscarlos\Translation\Facades\UriLocalizer::class,
     ];
 ```
 

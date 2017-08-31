@@ -1,10 +1,10 @@
 <?php
 
-namespace Waavi\Translation\Routes;
+namespace Vtscarlos\Translation\Routes;
 
 use Illuminate\Routing\ResourceRegistrar as LRR;
 use Illuminate\Routing\Router;
-use Waavi\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
 
 class ResourceRegistrar extends LRR
 {

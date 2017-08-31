@@ -1,7 +1,7 @@
-<?php namespace Waavi\Translation\Test\Commands;
+<?php namespace Vtscarlos\Translation\Test\Commands;
 
 use Mockery;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Test\TestCase;
 
 class FlushTest extends TestCase
 {
@@ -24,7 +24,7 @@ class FlushTest extends TestCase
     {
         $this->cacheRepository->put('en', 'group', 'namespace', 'value', 60);
         $this->assertTrue($this->cacheRepository->has('en', 'group', 'namespace'));
-        $command = Mockery::mock('Waavi\Translation\Commands\CacheFlushCommand[info]', [$this->cacheRepository, false]);
+        $command = Mockery::mock('Vtscarlos\Translation\Commands\CacheFlushCommand[info]', [$this->cacheRepository, false]);
         $command->shouldReceive('info')->with('The translation cache is disabled.')->once();
         $command->fire();
         $this->assertTrue($this->cacheRepository->has('en', 'group', 'namespace'));
@@ -37,7 +37,7 @@ class FlushTest extends TestCase
     {
         $this->cacheRepository->put('en', 'group', 'namespace', 'value', 60);
         $this->assertTrue($this->cacheRepository->has('en', 'group', 'namespace'));
-        $command = Mockery::mock('Waavi\Translation\Commands\CacheFlushCommand[info]', [$this->cacheRepository, true]);
+        $command = Mockery::mock('Vtscarlos\Translation\Commands\CacheFlushCommand[info]', [$this->cacheRepository, true]);
         $command->shouldReceive('info')->with('Translation cache cleared.')->once();
         $command->fire();
         $this->assertFalse($this->cacheRepository->has('en', 'group', 'namespace'));

@@ -1,7 +1,7 @@
-<?php namespace Waavi\Translation\Loaders;
+<?php namespace Vtscarlos\Translation\Loaders;
 
 use Illuminate\Translation\LoaderInterface;
-use Waavi\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
 
 class DatabaseLoader extends Loader implements LoaderInterface
 {
@@ -13,7 +13,7 @@ class DatabaseLoader extends Loader implements LoaderInterface
 
     /**
      *  Translations repository.
-     *  @var \Waavi\Translation\Repositories\TranslationRepository
+     *  @var \Vtscarlos\Translation\Repositories\TranslationRepository
      */
     protected $translationRepository;
 
@@ -21,7 +21,7 @@ class DatabaseLoader extends Loader implements LoaderInterface
      *  Create a new mixed loader instance.
      *
      *  @param  string                                                  $defaultLocale
-     *  @param  \Waavi\Translation\Repositories\TranslationRepository   $translationRepository
+     *  @param  \Vtscarlos\Translation\Repositories\TranslationRepository   $translationRepository
      */
     public function __construct($defaultLocale, TranslationRepository $translationRepository)
     {

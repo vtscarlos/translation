@@ -1,9 +1,9 @@
 <?php
 
-namespace Waavi\Translation\Test;
+namespace Vtscarlos\Translation\Test;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Waavi\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
 
 abstract class TestCase extends Orchestra
 {
@@ -23,7 +23,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            \Waavi\Translation\TranslationServiceProvider::class,
+            \Vtscarlos\Translation\TranslationServiceProvider::class,
         ];
     }
 
@@ -33,8 +33,8 @@ abstract class TestCase extends Orchestra
     protected function getPackageAliases($app)
     {
         return [
-            'UriLocalizer'     => \Waavi\Translation\Facades\UriLocalizer::class,
-            'TranslationCache' => \Waavi\Translation\Facades\TranslationCache::class,
+            'UriLocalizer'     => \Vtscarlos\Translation\Facades\UriLocalizer::class,
+            'TranslationCache' => \Vtscarlos\Translation\Facades\TranslationCache::class,
         ];
     }
 

@@ -1,9 +1,9 @@
-<?php namespace Waavi\Translation\Commands;
+<?php namespace Vtscarlos\Translation\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
 
 class FileLoaderCommand extends Command
 {
@@ -24,8 +24,8 @@ class FileLoaderCommand extends Command
     /**
      *  Create a new mixed loader instance.
      *
-     *  @param  \Waavi\Lang\Providers\LanguageProvider        $languageRepository
-     *  @param  \Waavi\Lang\Providers\LanguageEntryProvider   $translationRepository
+     *  @param  \Vtscarlos\Lang\Providers\LanguageProvider        $languageRepository
+     *  @param  \Vtscarlos\Lang\Providers\LanguageEntryProvider   $translationRepository
      *  @param  \Illuminate\Foundation\Application            $app
      */
     public function __construct(LanguageRepository $languageRepository, TranslationRepository $translationRepository, Filesystem $files, $translationsPath, $defaultLocale)

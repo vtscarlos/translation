@@ -1,11 +1,11 @@
 <?php
 
-namespace Waavi\Test\Routes;
+namespace Vtscarlos\Test\Routes;
 
 use Illuminate\Routing\Router;
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\Routes\ResourceRegistrar;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Routes\ResourceRegistrar;
+use Vtscarlos\Translation\Test\TestCase;
 use \Mockery;
 
 class ResourceRouteTest extends TestCase

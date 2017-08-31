@@ -1,4 +1,4 @@
-<?php namespace Waavi\Translation\Traits;
+<?php namespace Vtscarlos\Translation\Traits;
 
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;

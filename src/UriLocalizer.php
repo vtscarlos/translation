@@ -1,7 +1,7 @@
-<?php namespace Waavi\Translation;
+<?php namespace Vtscarlos\Translation;
 
 use Illuminate\Http\Request;
-use Waavi\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
 
 class UriLocalizer
 {

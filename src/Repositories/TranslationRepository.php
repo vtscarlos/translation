@@ -1,9 +1,9 @@
-<?php namespace Waavi\Translation\Repositories;
+<?php namespace Vtscarlos\Translation\Repositories;
 
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\NamespacedItemResolver;
-use Waavi\Translation\Models\Translation;
+use Vtscarlos\Translation\Models\Translation;
 
 class TranslationRepository extends Repository
 {
@@ -15,7 +15,7 @@ class TranslationRepository extends Repository
     /**
      * The model being queried.
      *
-     * @var \Waavi\Translation\Models\Translation
+     * @var \Vtscarlos\Translation\Models\Translation
      */
     protected $model;
 
@@ -35,7 +35,7 @@ class TranslationRepository extends Repository
 
     /**
      *  Constructor
-     *  @param  \Waavi\Translation\Models\Translation   $model  Bade model for queries.
+     *  @param  \Vtscarlos\Translation\Models\Translation   $model  Bade model for queries.
      *  @param  \Illuminate\Validation\Validator        $validator  Validator factory
      *  @return void
      */

@@ -1,4 +1,4 @@
-<?php namespace Waavi\Translation\Loaders;
+<?php namespace Vtscarlos\Translation\Loaders;
 
 use Illuminate\Translation\LoaderInterface;
 
@@ -12,13 +12,13 @@ class MixedLoader extends Loader implements LoaderInterface
 
     /**
      *  The file loader.
-     *  @var \Waavi\Translation\Loaders\Loader
+     *  @var \Vtscarlos\Translation\Loaders\Loader
      */
     protected $primaryLoader;
 
     /**
      *  The database loader.
-     *  @var \Waavi\Translation\Loaders\Loader
+     *  @var \Vtscarlos\Translation\Loaders\Loader
      */
     protected $secondaryLoader;
 

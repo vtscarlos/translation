@@ -1,11 +1,11 @@
-<?php namespace Waavi\Translation\Test\Traits;
+<?php namespace Vtscarlos\Translation\Test\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Mockery;
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\Repositories\TranslationRepository;
-use Waavi\Translation\Test\TestCase;
-use Waavi\Translation\Traits\Translatable;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Test\TestCase;
+use Vtscarlos\Translation\Traits\Translatable;
 
 class TranslatableTest extends TestCase
 {
@@ -57,7 +57,7 @@ class TranslatableTest extends TestCase
      */
     public function it_flushes_cache()
     {
-        $cacheMock = Mockery::mock(\Waavi\Translation\Cache\SimpleRepository::class);
+        $cacheMock = Mockery::mock(\Vtscarlos\Translation\Cache\SimpleRepository::class);
         $this->app->bind('translation.cache.repository', function ($app) use ($cacheMock) {return $cacheMock;});
         $cacheMock->shouldReceive('flush')->with('en', 'translatable', '*');
         $dummy        = new Dummy;

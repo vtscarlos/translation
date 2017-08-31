@@ -1,8 +1,8 @@
-<?php namespace Waavi\Translation\Test\Cache;
+<?php namespace Vtscarlos\Translation\Test\Cache;
 
 use Illuminate\Cache\ArrayStore;
-use Waavi\Translation\Cache\TaggedRepository;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Cache\TaggedRepository;
+use Vtscarlos\Translation\Test\TestCase;
 
 class TaggedRepositoryTest extends TestCase
 {

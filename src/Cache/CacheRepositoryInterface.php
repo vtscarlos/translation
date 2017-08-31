@@ -1,6 +1,6 @@
 <?php
 
-namespace Waavi\Translation\Cache;
+namespace Vtscarlos\Translation\Cache;
 
 interface CacheRepositoryInterface
 {

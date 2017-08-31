@@ -1,4 +1,4 @@
-<?php namespace Waavi\Translation\Models;
+<?php namespace Vtscarlos\Translation\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class Language extends Model
      *  Table name in the database.
      *  @var string
      */
-    protected $table = 'translator_languages';
+    protected $table = 'language';
 
     /**
      *  List of variables that cannot be mass assigned

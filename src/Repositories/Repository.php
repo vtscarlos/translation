@@ -1,4 +1,4 @@
-<?php namespace Waavi\Translation\Repositories;
+<?php namespace Vtscarlos\Translation\Repositories;
 
 class Repository
 {

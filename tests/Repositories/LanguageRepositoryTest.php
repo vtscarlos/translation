@@ -1,8 +1,8 @@
-<?php namespace Waavi\Translation\Test\Repositories;
+<?php namespace Vtscarlos\Translation\Test\Repositories;
 
-use Waavi\Translation\Repositories\LanguageRepository;
-use Waavi\Translation\Repositories\TranslationRepository;
-use Waavi\Translation\Test\TestCase;
+use Vtscarlos\Translation\Repositories\LanguageRepository;
+use Vtscarlos\Translation\Repositories\TranslationRepository;
+use Vtscarlos\Translation\Test\TestCase;
 
 class LanguageRepositoryTest extends TestCase
 {
