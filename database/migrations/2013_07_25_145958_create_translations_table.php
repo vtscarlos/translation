@@ -12,9 +12,9 @@ class CreateTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('translator_translations', function ($table) {
+        Schema::create('language_translations', function ($table) {
             $table->increments('id');
-            $table->string('locale', 6);
+            $table->string('language_id', 6);
             $table->string('namespace', 150)->default('*');
             $table->string('group', 150);
             $table->string('item', 150);
