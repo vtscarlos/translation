@@ -96,7 +96,7 @@ class LanguageRepository extends Repository
      */
     public function findByLocale($locale)
     {
-        return $this->model->where('locale', $locale)->first();
+        return $this->model->where('language_id', $locale)->first();
     }
 
     /**
@@ -106,7 +106,7 @@ class LanguageRepository extends Repository
      */
     public function findTrashedByLocale($locale)
     {
-        return $this->model->onlyTrashed()->where('locale', $locale)->first();
+        return $this->model->onlyTrashed()->where('language_id', $locale)->first();
     }
 
     /**
@@ -116,7 +116,7 @@ class LanguageRepository extends Repository
      */
     public function allExcept($locale)
     {
-        return $this->model->where('locale', '!=', $locale)->get();
+        return $this->model->where('language_id', '!=', $locale)->get();
     }
 
     /**
@@ -132,7 +132,7 @@ class LanguageRepository extends Repository
 
         if ($this->config->get('translator.source') !== 'files') {
             if ($this->tableExists()) {
-                $locales = $this->model->distinct()->get()->pluck('locale')->toArray();
+                $locales = $this->model->distinct()->get()->pluck('language_id')->toArray();
                 $this->config->set('translator.locales', $locales);
                 return $locales;
             }
@@ -180,7 +180,7 @@ class LanguageRepository extends Repository
         $id    = array_get($attributes, 'id', 'NULL');
         $table = $this->model->getTable();
         $rules = [
-            'locale' => "required|unique:{$table},locale,{$id}",
+            'language_id' => "required|unique:{$table},locale,{$id}",
             'name'   => "required|unique:{$table},name,{$id}",
         ];
         $validator = $this->validator->make($attributes, $rules);

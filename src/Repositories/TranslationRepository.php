@@ -55,7 +55,7 @@ class TranslationRepository extends Repository
      *  @return boolean
      */
     public function create(array $attributes)
-    {
+    {   
         return $this->validate($attributes) ? Translation::create($attributes) : null;
     }
 
@@ -74,7 +74,7 @@ class TranslationRepository extends Repository
         }
         $translation->text = $text;
         $saved             = $translation->save();
-        if ($saved && $translation->locale === $this->defaultLocale) {
+        if ($saved && $translation->language_id === $this->defaultLocale) {
             $this->flagAsUnstable($translation->namespace, $translation->group, $translation->item);
         }
         return $saved;
@@ -97,7 +97,7 @@ class TranslationRepository extends Repository
         $translation->text = $text;
         $translation->lock();
         $saved = $translation->save();
-        if ($saved && $translation->locale === $this->defaultLocale) {
+        if ($saved && $translation->language_id === $this->defaultLocale) {
             $this->flagAsUnstable($translation->namespace, $translation->group, $translation->item);
         }
         return $saved;
@@ -114,9 +114,9 @@ class TranslationRepository extends Repository
     {
         list($namespace, $group, $item) = $this->parseCode($code);
         $locale                         = $this->defaultLocale;
-        $translation                    = $this->model->whereLocale($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
+        $translation                    = $this->model->whereLanguageId($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
         if (!$translation) {
-            return $this->create(compact('locale', 'namespace', 'group', 'item', 'text'));
+            return $this->create(compact('language_id', 'namespace', 'group', 'item', 'text'));
         }
         return $this->update($translation->id, $text);
     }
@@ -134,7 +134,7 @@ class TranslationRepository extends Repository
             return false;
         }
 
-        if ($translation->locale === $this->defaultLocale) {
+        if ($translation->language_id === $this->defaultLocale) {
             return $this->model->whereNamespace($translation->namespace)->whereGroup($translation->group)->whereItem($translation->item)->delete();
         } else {
             return $translation->delete();
@@ -162,30 +162,31 @@ class TranslationRepository extends Repository
      *  @param  string  $namespace
      *  @return void
      */
-    public function loadArray(array $lines, $locale, $group, $namespace = '*')
+    public function loadArray(array $lines, $language_id, $group, $namespace = '*')
     {
         // Transform the lines into a flat dot array:
         $lines = array_dot($lines);
         foreach ($lines as $item => $text) {
             if (is_string($text)) {
                 // Check if the entry exists in the database:
-                $translation = Translation::whereLocale($locale)
+                $translation = Translation::whereLanguageId($language_id)
                     ->whereNamespace($namespace)
                     ->whereGroup($group)
                     ->whereItem($item)
                     ->first();
 
+
                 // If the translation already exists, we update the text:
                 if ($translation && !$translation->isLocked()) {
                     $translation->text = $text;
                     $saved             = $translation->save();
-                    if ($saved && $translation->locale === $this->defaultLocale) {
+                    if ($saved && $translation->language_id === $this->defaultLocale) {
                         $this->flagAsUnstable($namespace, $group, $item);
                     }
                 }
                 // If no entry was found, create it:
                 else {
-                    $this->create(compact('locale', 'namespace', 'group', 'item', 'text'));
+                    $this->create(compact('language_id', 'namespace', 'group', 'item', 'text'));
                 }
             }
         }
@@ -199,7 +200,7 @@ class TranslationRepository extends Repository
      */
     public function allByLocale($locale, $perPage = 0)
     {
-        $translations = $this->model->where('locale', $locale);
+        $translations = $this->model->where('language_id', $locale);
         return $perPage ? $translations->paginate($perPage) : $translations->get();
     }
 
@@ -214,7 +215,7 @@ class TranslationRepository extends Repository
     public function getItems($locale, $namespace, $group)
     {
         return $this->model
-            ->whereLocale($locale)
+            ->whereLanguageId($locale)
             ->whereNamespace($namespace)
             ->whereGroup($group)
             ->get()
@@ -232,7 +233,7 @@ class TranslationRepository extends Repository
     public function loadSource($locale, $namespace, $group)
     {
         return $this->model
-            ->whereLocale($locale)
+            ->whereLanguageId($locale)
             ->whereNamespace($namespace)
             ->whereGroup($group)
             ->get()
@@ -252,7 +253,7 @@ class TranslationRepository extends Repository
      */
     public function pendingReview($locale, $perPage = 0)
     {
-        $underReview = $this->model->whereLocale($locale)->whereUnstable(1);
+        $underReview = $this->model->whereLanguageId($locale)->whereUnstable(1);
         return $perPage ? $underReview->paginate($perPage) : $underReview->get();
     }
 
@@ -268,7 +269,7 @@ class TranslationRepository extends Repository
     {
         // Get the namespace, if any:
         $colonIndex = stripos($partialCode, '::');
-        $query      = $this->model->whereLocale($locale);
+        $query      = $this->model->whereLanguageId($locale);
         if ($colonIndex === 0) {
             $query = $query->where('namespace', '!=', '*');
         } elseif ($colonIndex > 0) {
@@ -330,7 +331,7 @@ class TranslationRepository extends Repository
     public function findByLangCode($locale, $code)
     {
         list($namespace, $group, $item) = $this->parseCode($code);
-        return $this->model->whereLocale($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
+        return $this->model->whereLanguageId($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
     }
 
     /**
@@ -344,7 +345,7 @@ class TranslationRepository extends Repository
      */
     public function findByCode($locale, $namespace, $group, $item)
     {
-        return $this->model->whereLocale($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
+        return $this->model->whereLanguageId($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
     }
 
     /**
@@ -386,7 +387,7 @@ class TranslationRepository extends Repository
      */
     public function flagAsUnstable($namespace, $group, $item)
     {
-        $this->model->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->where('locale', '!=', $this->defaultLocale)->update(['unstable' => '1']);
+        $this->model->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->where('language_id', '!=', $this->defaultLocale)->update(['unstable' => '1']);
     }
 
     /**
@@ -409,14 +410,14 @@ class TranslationRepository extends Repository
     public function validate(array $attributes)
     {
         $table     = $this->model->getTable();
-        $locale    = array_get($attributes, 'locale', '');
+        $language_id = array_get($attributes, 'language_id', '');
         $namespace = array_get($attributes, 'namespace', '');
         $group     = array_get($attributes, 'group', '');
         $rules     = [
-            'locale'    => 'required',
+            'language_id' => 'required',
             'namespace' => 'required',
             'group'     => 'required',
-            'item'      => "required|unique:{$table},item,NULL,id,locale,{$locale},namespace,{$namespace},group,{$group}",
+            'item'      => "required|unique:{$table},item,NULL,id,language_id,{$language_id},namespace,{$namespace},group,{$group}",
             'text'      => '', // Translations may be empty
         ];
         $validator = $this->app['validator']->make($attributes, $rules);

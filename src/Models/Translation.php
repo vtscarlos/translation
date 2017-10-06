@@ -14,14 +14,14 @@ class Translation extends Model
      *  List of variables that can be mass assigned
      *  @var array
      */
-    protected $fillable = ['locale', 'namespace', 'group', 'item', 'text', 'unstable'];
+    protected $fillable = ['language_id', 'namespace', 'group', 'item', 'text', 'unstable'];
 
     /**
      *  Each translation belongs to a language.
      */
     public function language()
     {
-        return $this->belongsTo(Language::class, 'locale', 'locale');
+        return $this->belongsTo(\App\Language::class, 'id', 'language_id');
     }
 
     /**
