@@ -1,11 +1,11 @@
 <?php namespace Vtscarlos\Translation\Loaders;
 
 use Illuminate\Config\Repository as Config;
-use Illuminate\Translation\LoaderInterface;
+use Illuminate\Contracts\Translation\Loader as LoaderContract;
 use Vtscarlos\Translation\Repositories\LanguageRepository;
 use Vtscarlos\Translation\Repositories\TranslationRepository;
 
-abstract class Loader implements LoaderInterface
+abstract class Loader implements LoaderContract
 {
     /**
      * The default locale.
