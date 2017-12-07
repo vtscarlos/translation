@@ -1,4 +1,4 @@
-<?php namespace Waavi\Translation\Loaders;
+<?php namespace Vtscarlos\Translation\Loaders;
 
 use Illuminate\Translation\FileLoader as LaravelFileLoader;
 
