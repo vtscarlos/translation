@@ -1,9 +1,8 @@
-<?php namespace Vtscarlos\Translation\Loaders;
+<?php namespace Waavi\Translation\Loaders;
 
 use Illuminate\Translation\FileLoader as LaravelFileLoader;
-use Illuminate\Contracts\Translation\Loader as LoaderContract;
 
-class FileLoader extends Loader implements LoaderContract
+class FileLoader extends Loader
 {
     /**
      * The default locale.
