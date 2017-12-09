@@ -1,9 +1,9 @@
 <?php namespace Vtscarlos\Translation\Loaders;
 
-use Illuminate\Translation\LoaderInterface;
+use Illuminate\Contracts\Translation\Loader as LoaderContract;
 use Vtscarlos\Translation\Cache\CacheRepositoryInterface as Cache;
 
-class CacheLoader extends Loader implements LoaderInterface
+class CacheLoader extends Loader implements LoaderContract
 {
     /**
      * The default locale.
