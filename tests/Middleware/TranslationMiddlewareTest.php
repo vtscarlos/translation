@@ -1,6 +1,5 @@
 <?php namespace Vtscarlos\Translation\Test\Middleware;
 
-use Vtscarlos\Translation\Repositories\TranslationRepository;
 use Vtscarlos\Translation\Test\TestCase;
 
 class TranslationMiddlewareTest extends TestCase
@@ -102,40 +101,4 @@ class TranslationMiddlewareTest extends TestCase
         $this->assertTrue($response->headers->has('location'));
         $this->assertEquals('http://localhost/api/v1/en/ca/locale', $response->headers->get('location'));
     }
-
-
-      /**
-       * @test
-       */
-      public function it_keeps_locale_in_post_requests_with_no_locale_set()
-      {
-          $translationRepository = \App::make(TranslationRepository::class);
-          $trans                 = $translationRepository->create([
-              'locale'    => 'en',
-              'namespace' => '*',
-              'group'     => 'welcome',
-              'item'      => 'title',
-              'text'      => 'Welcome',
-          ]);
- 
-          $trans = $translationRepository->create([
-              'locale'    => 'es',
-              'namespace' => '*',
-              'group'     => 'welcome',
-              'item'      => 'title',
-              'text'      => 'Bienvenido',
-          ]);
- 
-          $this->call('GET', '/es');
-          $response   = $this->call('POST', '/welcome');
-          $statusCode = $response->getStatusCode();
-          $this->assertEquals(200, $response->getStatusCode());
-          $this->assertEquals('Bienvenido', $response->getContent());
-
-          $this->call('GET', '/en');
-          $response   = $this->call('POST', '/welcome');
-          $statusCode = $response->getStatusCode();
-          $this->assertEquals(200, $response->getStatusCode());
-          $this->assertEquals('Welcome', $response->getContent());
-      }
 }

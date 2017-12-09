@@ -1,5 +1,4 @@
 /vendor
-/.phpintel/
 /tests/temp
 composer.phar
 composer.lock

@@ -1,9 +1,9 @@
 <?php namespace Vtscarlos\Translation\Loaders;
 
-use Illuminate\Contracts\Translation\Loader as LoaderContract;
+use Illuminate\Translation\LoaderInterface;
 use Vtscarlos\Translation\Repositories\TranslationRepository;
 
-class DatabaseLoader extends Loader implements LoaderContract
+class DatabaseLoader extends Loader implements LoaderInterface
 {
     /**
      *  The default locale.

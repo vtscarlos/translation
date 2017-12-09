@@ -1,8 +1,8 @@
 <?php namespace Vtscarlos\Translation\Loaders;
 
-use Illuminate\Contracts\Translation\Loader as LoaderContract;
+use Illuminate\Translation\LoaderInterface;
 
-class MixedLoader extends Loader implements LoaderContract
+class MixedLoader extends Loader implements LoaderInterface
 {
     /**
      *  The default locale.
